@@ -1,5 +1,7 @@
 package controller;
 
+import controller.menus.entities.*;
+
 import java.util.Scanner;
 
 public class AppController {
@@ -37,16 +39,8 @@ public class AppController {
     /* Instance Methods */
     public void run() {
         while (getStatus() != AppStatus.EXIT) {
-            if (getStatus() == AppStatus.LOGIN_REGISTER) {//TODO: call login/register run
-                setStatus(AppStatus.EXIT);
-            } else if (getStatus() == AppStatus.MAIN) {//TODO: call main run
-            } else if (getStatus() == AppStatus.DUEL) {//TODO: call duel run
-            } else if (getStatus() == AppStatus.DECK) {//TODO: call deck run
-            } else if (getStatus() == AppStatus.SCOREBOARD) {//TODO: call scoreboard run
-            } else if (getStatus() == AppStatus.PROFILE) {//TODO: call profile run
-            } else if (getStatus() == AppStatus.SHOP) {//TODO: call shop run
-            } else if (getStatus() == AppStatus.IMPORT_EXPORT) {//TODO: call import export run
-            } else return;
+            if (getStatus() == AppStatus.LOGIN_REGISTER) LoginRegisterMenu.run();
+            else return;
         }
     }
 }

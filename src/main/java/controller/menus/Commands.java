@@ -7,11 +7,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum Commands {
+    // Commands for login register menu
+    LOGIN_REGISTER_CREATE_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user create --(?<key1>username|nickname|password) (?<value1>\\S+) --(?<key2>username|nickname|password) (?<value2>\\S+) --(?<key3>username|nickname|password) (?<value3>\\S+)\\s*$", "user create --username <username> --nickname <nickname> --password <password>"),
+    LOGIN_REGISTER_LOGIN_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user login --(?<key1>username|password) (?<value1>\\S+) --(?<key2>username|password) (?<value2>\\S+)\\s*$", "user login --username <username> --password <password>"),
+
     // Global commands
-    GLOBAL_SHOW_MENU(MenuEntities.GLOBAL, null, null),
-    GLOBAL_ENTER_MENU(MenuEntities.GLOBAL, null, null),
-    GLOBAL_EXIT_MENU(MenuEntities.GLOBAL, null, null),
-    GLOBAL_INVALID_COMMAND(MenuEntities.GLOBAL, null, null);
+    GLOBAL_SHOW_MENU(MenuEntities.GLOBAL, "^\\s*menu show-current\\s*$", "menu show-current"),
+    GLOBAL_ENTER_MENU(MenuEntities.GLOBAL, "^\\s*menu enter " + String.join("|", MenuEntities.getAllMenusName()) + "\\s*$", "menu enter <menu name>"),
+    GLOBAL_EXIT_MENU(MenuEntities.GLOBAL, "^\\s*menu exit\\s*$", "menu exit"),
+    GLOBAL_INVALID_COMMAND(MenuEntities.GLOBAL, "", "");
 
     // Value
     private final MenuEntities menuEntities;
