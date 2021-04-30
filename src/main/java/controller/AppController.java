@@ -1,5 +1,6 @@
 package controller;
 
+import controller.menus.entities.MainMenu;
 import controller.menus.entities.login.LoginRegisterMenu;
 
 import java.util.Scanner;
@@ -40,6 +41,7 @@ public class AppController {
     public void run() {
         while (getStatus() != AppStatus.EXIT) {
             if (getStatus() == AppStatus.LOGIN_REGISTER) LoginRegisterMenu.run();
+            if (getStatus() == AppStatus.MAIN) MainMenu.run();
             else return;
         }
     }

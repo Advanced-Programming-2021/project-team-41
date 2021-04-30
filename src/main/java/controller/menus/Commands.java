@@ -10,7 +10,7 @@ public enum Commands {
     LOGIN_REGISTER_LOGIN_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user login(?<args>.*)\\s*$"),
 
     // Commands for main menu
-    MAIN_LOGOUT(MenuEntities.MAIN, null),
+    MAIN_LOGOUT(MenuEntities.MAIN, "^\\s*user logout\\s*$"),
 
     // Global commands
     GLOBAL_SHOW_MENU(MenuEntities.GLOBAL, "^\\s*menu show-current\\s*$"),
