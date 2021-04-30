@@ -1,6 +1,6 @@
 package controller;
 
-import controller.menus.entities.*;
+import controller.menus.entities.login.LoginRegisterMenu;
 
 import java.util.Scanner;
 
