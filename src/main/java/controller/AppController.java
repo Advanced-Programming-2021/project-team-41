@@ -1,8 +1,10 @@
 package controller;
 
 import controller.menus.entities.MainMenu;
+import controller.menus.entities.Scoreboard;
 import controller.menus.entities.deck.DeckMenu;
 import controller.menus.entities.login.LoginRegisterMenu;
+import controller.menus.entities.profile.ProfileMenu;
 
 import java.util.Scanner;
 
@@ -44,6 +46,8 @@ public class AppController {
             if (getStatus() == AppStatus.LOGIN_REGISTER) LoginRegisterMenu.run();
             if (getStatus() == AppStatus.MAIN) MainMenu.run();
             if (getStatus() == AppStatus.DECK) DeckMenu.run();
+            if (getStatus() == AppStatus.SCOREBOARD) Scoreboard.run();
+            if (getStatus() == AppStatus.PROFILE) ProfileMenu.run();
             else return;
         }
     }

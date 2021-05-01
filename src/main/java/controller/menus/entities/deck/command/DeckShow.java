@@ -15,6 +15,14 @@ public class DeckShow extends Command {
     private boolean side;
 
     /* Getters */
+    public String getDeckName() {
+        return deckName;
+    }
+
+    public boolean isSide() {
+        return side;
+    }
+
     @Override
     protected String getName() {
         return name;

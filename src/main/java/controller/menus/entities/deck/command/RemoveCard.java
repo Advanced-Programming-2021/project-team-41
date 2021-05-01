@@ -18,6 +18,18 @@ public class RemoveCard extends Command {
     private boolean side;
 
     /* Getters */
+    public String getCardName() {
+        return cardName;
+    }
+
+    public String getDeckName() {
+        return deckName;
+    }
+
+    public boolean isSide() {
+        return side;
+    }
+
     @Override
     protected String getName() {
         return name;

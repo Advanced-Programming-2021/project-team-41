@@ -9,6 +9,13 @@ public enum Commands {
     LOGIN_REGISTER_CREATE_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user create(?<args>.*)\\s*$"),
     LOGIN_REGISTER_LOGIN_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user login(?<args>.*)\\s*$"),
 
+    // Commands for profile menu
+    PROFILE_CHANGE_NICKNAME(MenuEntities.PROFILE, "^\\s*profile change --nickname (?<nickname>\\S+)\\s*$"),
+    PROFILE_CHANGE_PASSWORD(MenuEntities.PROFILE, "^\\s*profile change --password(?<args>.*)\\s*$"),
+
+    // Commands for scoreboard menu
+    SCOREBOARD_SHOW(MenuEntities.SCOREBOARD, "^\\s*scoreboard show\\s*$"),
+
     // Commands for deck menu
     DECK_CREATE_NEW_DECK(MenuEntities.DECK, "^\\s*deck create (?<deckName>\\S+)\\s*$"),
     DECK_DELETE_DECK(MenuEntities.DECK, "^\\s*deck delete (?<deckName>\\S+)\\s*$"),
