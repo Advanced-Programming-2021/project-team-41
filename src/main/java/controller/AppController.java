@@ -1,6 +1,7 @@
 package controller;
 
 import controller.menus.entities.MainMenu;
+import controller.menus.entities.deck.DeckMenu;
 import controller.menus.entities.login.LoginRegisterMenu;
 
 import java.util.Scanner;
@@ -42,6 +43,7 @@ public class AppController {
         while (getStatus() != AppStatus.EXIT) {
             if (getStatus() == AppStatus.LOGIN_REGISTER) LoginRegisterMenu.run();
             if (getStatus() == AppStatus.MAIN) MainMenu.run();
+            if (getStatus() == AppStatus.DECK) DeckMenu.run();
             else return;
         }
     }

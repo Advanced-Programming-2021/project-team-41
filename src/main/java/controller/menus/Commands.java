@@ -9,12 +9,22 @@ public enum Commands {
     LOGIN_REGISTER_CREATE_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user create(?<args>.*)\\s*$"),
     LOGIN_REGISTER_LOGIN_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user login(?<args>.*)\\s*$"),
 
+    // Commands for deck menu
+    DECK_CREATE_NEW_DECK(MenuEntities.DECK, "^\\s*deck create (?<deckName>\\S+)\\s*$"),
+    DECK_DELETE_DECK(MenuEntities.DECK, "^\\s*deck delete (?<deckName>\\S+)\\s*$"),
+    DECK_SET_AS_ACTIVE(MenuEntities.DECK, "^\\s*deck set-activate (?<deckName>\\S+)\\s*$"),
+    DECK_ADD_CARD_TO_DECK(MenuEntities.DECK, "^\\s*deck add-card(?<args>.*)\\s*$"),
+    DECK_REMOVE_CARD_FROM_DECK(MenuEntities.DECK, "^\\s*deck rm-card(?<args>.*)\\s*$"),
+    DECK_SHOW_ALL_DECKS(MenuEntities.DECK, "^\\s*deck show --all\\s*$"),
+    DECK_SHOW_DECK(MenuEntities.DECK, "^\\s*deck show(?<args>.*)\\s*$"),
+    DECK_SHOW_ALL_CARDS(MenuEntities.DECK, "^\\s*deck show --cards\\s*$"),
+
     // Commands for main menu
     MAIN_LOGOUT(MenuEntities.MAIN, "^\\s*user logout\\s*$"),
 
     // Global commands
     GLOBAL_SHOW_MENU(MenuEntities.GLOBAL, "^\\s*menu show-current\\s*$"),
-    GLOBAL_ENTER_MENU(MenuEntities.GLOBAL, "^\\s*menu enter (\\S+)\\s*$"),
+    GLOBAL_ENTER_MENU(MenuEntities.GLOBAL, "^\\s*menu enter (?<menuName>\\S+)\\s*$"),
     GLOBAL_EXIT_MENU(MenuEntities.GLOBAL, "^\\s*menu exit\\s*$"),
     GLOBAL_INVALID_COMMAND(MenuEntities.GLOBAL, "");
 

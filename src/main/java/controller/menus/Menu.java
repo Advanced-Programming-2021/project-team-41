@@ -32,8 +32,8 @@ public abstract class Menu {
         MenuEntities selectedMenu = MenuEntities.getMenuByName(capturedGroup.get(0));
         if (selectedMenu == null) {
             System.out.println("We don't have menu with this name");
-        } else if (currentMenu == MenuEntities.LOGIN_REGISTER) {
-            if (selectedMenu == MenuEntities.MAIN) menuNavigation(selectedMenu.getAppStatus());
+        } else if (currentMenu == MenuEntities.LOGIN_REGISTER && selectedMenu == MenuEntities.MAIN) {
+            menuNavigation(selectedMenu.getAppStatus());
         } else if (currentMenu == MenuEntities.MAIN) {
             menuNavigation(selectedMenu.getAppStatus());
         } else {
