@@ -1,5 +1,12 @@
 package controller;
 
+import controller.menus.entities.MainMenu;
+import controller.menus.entities.Scoreboard;
+import controller.menus.entities.ShopMenu;
+import controller.menus.entities.deck.DeckMenu;
+import controller.menus.entities.login.LoginRegisterMenu;
+import controller.menus.entities.profile.ProfileMenu;
+
 import java.util.Scanner;
 
 public class AppController {
@@ -37,16 +44,13 @@ public class AppController {
     /* Instance Methods */
     public void run() {
         while (getStatus() != AppStatus.EXIT) {
-            if (getStatus() == AppStatus.LOGIN_REGISTER) {//TODO: call login/register run
-                setStatus(AppStatus.EXIT);
-            } else if (getStatus() == AppStatus.MAIN) {//TODO: call main run
-            } else if (getStatus() == AppStatus.DUEL) {//TODO: call duel run
-            } else if (getStatus() == AppStatus.DECK) {//TODO: call deck run
-            } else if (getStatus() == AppStatus.SCOREBOARD) {//TODO: call scoreboard run
-            } else if (getStatus() == AppStatus.PROFILE) {//TODO: call profile run
-            } else if (getStatus() == AppStatus.SHOP) {//TODO: call shop run
-            } else if (getStatus() == AppStatus.IMPORT_EXPORT) {//TODO: call import export run
-            } else return;
+            if (getStatus() == AppStatus.LOGIN_REGISTER) LoginRegisterMenu.run();
+            if (getStatus() == AppStatus.MAIN) MainMenu.run();
+            if (getStatus() == AppStatus.DECK) DeckMenu.run();
+            if (getStatus() == AppStatus.SCOREBOARD) Scoreboard.run();
+            if (getStatus() == AppStatus.PROFILE) ProfileMenu.run();
+            if (getStatus() == AppStatus.SHOP) ShopMenu.run();
+            else return;
         }
     }
 }
