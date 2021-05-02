@@ -2,6 +2,7 @@ package controller;
 
 import controller.menus.entities.MainMenu;
 import controller.menus.entities.Scoreboard;
+import controller.menus.entities.ShopMenu;
 import controller.menus.entities.deck.DeckMenu;
 import controller.menus.entities.login.LoginRegisterMenu;
 import controller.menus.entities.profile.ProfileMenu;
@@ -48,6 +49,7 @@ public class AppController {
             if (getStatus() == AppStatus.DECK) DeckMenu.run();
             if (getStatus() == AppStatus.SCOREBOARD) Scoreboard.run();
             if (getStatus() == AppStatus.PROFILE) ProfileMenu.run();
+            if (getStatus() == AppStatus.SHOP) ShopMenu.run();
             else return;
         }
     }

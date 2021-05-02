@@ -9,6 +9,10 @@ public enum Commands {
     LOGIN_REGISTER_CREATE_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user create(?<args>.*)\\s*$"),
     LOGIN_REGISTER_LOGIN_USER(MenuEntities.LOGIN_REGISTER, "^\\s*user login(?<args>.*)\\s*$"),
 
+    // Commands for shop menu
+    SHOP_BUY_CARD(MenuEntities.SHOP, "^\\s*shop buy (?<cardName>\\S+)\\s*$"),
+    SHOP_SHOW_ALL_AVAILABLE_CARDS(MenuEntities.SHOP, "^\\s*shop show --all\\s*$"),
+
     // Commands for profile menu
     PROFILE_CHANGE_NICKNAME(MenuEntities.PROFILE, "^\\s*profile change --nickname (?<nickname>\\S+)\\s*$"),
     PROFILE_CHANGE_PASSWORD(MenuEntities.PROFILE, "^\\s*profile change --password(?<args>.*)\\s*$"),
