@@ -1,4 +1,4 @@
-package model.database.UserDB;
+package model.database.user;
 
 import model.database.DataBase;
 

@@ -1,4 +1,4 @@
-package model.database.UserDB;
+package model.database.user;
 
 public class UserDBException extends Exception {
     public UserDBException(String msg) {

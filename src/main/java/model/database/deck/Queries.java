@@ -1,4 +1,4 @@
-package model.database.DeckDB;
+package model.database.deck;
 
 public enum Queries {
     INSERT_DECK("INSERT INTO deck (`name`) VALUES ('%s')"),
