@@ -50,21 +50,21 @@ public class Card {
     }
 
     @Override
-    public String toString() {
-        return "Card{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", level=" + level +
-                ", attribute='" + attribute + '\'' +
-                ", monsterType='" + monsterType + '\'' +
-                ", cardType='" + cardType + '\'' +
-                ", attack=" + attack +
-                ", defence=" + defence +
-                ", property='" + property + '\'' +
-                ", status='" + status + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                '}';
-    }
+//    public String toString() {
+//        return "Card{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", type='" + type + '\'' +
+//                ", level=" + level +
+//                ", attribute='" + attribute + '\'' +
+//                ", monsterType='" + monsterType + '\'' +
+//                ", cardType='" + cardType + '\'' +
+//                ", attack=" + attack +
+//                ", defence=" + defence +
+//                ", property='" + property + '\'' +
+//                ", status='" + status + '\'' +
+//                ", description='" + description + '\'' +
+//                ", price=" + price +
+//                '}';
+//    }
 }
