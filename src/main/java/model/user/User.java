@@ -3,6 +3,8 @@ package model.user;
 import model.card.Card;
 import model.database.deck.DeckDB;
 import model.database.user.UserDB;
+import model.database.user.UserDBException;
+import model.database.user.UserDoesNotExists;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;
@@ -76,6 +78,11 @@ public class User {
 
     public int getScore() {
         return score;
+    }
+
+    public void setScore(int score) throws UserDBException {
+        UserDB.updateScore(this.id, score);
+        this.score = score;
     }
 
     public Wallet getWallet() {
