@@ -4,7 +4,6 @@ import model.card.Card;
 import model.database.deck.DeckDB;
 import model.database.user.UserDB;
 import model.database.user.UserDBException;
-import model.database.user.UserDoesNotExists;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;

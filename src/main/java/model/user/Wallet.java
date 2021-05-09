@@ -1,5 +1,8 @@
 package model.user;
 
+import model.database.user.UserDB;
+import model.database.user.UserDBException;
+
 public class Wallet {
     /* Instance Fields */
     private final User user;
@@ -20,18 +23,18 @@ public class Wallet {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(int amount) throws UserDBException {
         UserDB.updateMoney(this.user.getId(), amount);
         this.amount = amount;
     }
 
     /* Instance Methods */
-    public void increaseAmount(int amount) throws WalletException {
+    public void increaseAmount(int amount) throws WalletException, UserDBException {
         if (amount < 0) throw new NegativeIncreaseValue();
         setAmount(getAmount() + amount);
     }
 
-    public void decreaseAmount(int amount) throws WalletException {
+    public void decreaseAmount(int amount) throws WalletException, UserDBException {
         if (amount < 0) amount = -amount;
         if (amount > this.amount) throw new NotEnoughMoney();
         setAmount(getAmount() - amount);
