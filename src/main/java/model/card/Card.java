@@ -1,13 +1,11 @@
 package model.card;
 
-import java.util.HashMap;
-
 public class Card {
-    int cardId;
-    String name;
-    String type;
-    String description;
-    int price;
+    private int cardId;
+    private String name;
+    private String type;
+    private String description;
+    private int price;
 
     public int getCardId() {
         return cardId;
@@ -49,7 +47,7 @@ public class Card {
         this.price = price;
     }
 
-    @Override
+//    @Override
 //    public String toString() {
 //        return "Card{" +
 //                "id=" + id +
