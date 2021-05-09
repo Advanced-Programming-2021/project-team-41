@@ -1,8 +1,8 @@
-package model.database.DeckDB;
+package model.database.deck;
 
 import model.database.DataBase;
-import model.database.UserDB.UserDB;
-import model.database.UserDB.UserDBException;
+import model.database.user.UserDB;
+import model.database.user.UserDBException;
 
 public class DeckDB {
     /* Static Fields */

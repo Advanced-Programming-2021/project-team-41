@@ -1,4 +1,4 @@
-package model.database.UserDB;
+package model.database.user;
 
 public enum Queries {
     GET_USER_BY_NICKNAME("SELECT * FROM `user` WHERE `nickname` == '%s'"),

@@ -1,4 +1,4 @@
-package model.database.DeckDB;
+package model.database.deck;
 
 public class DeckDBException extends Exception {
     public DeckDBException(String msg) {
