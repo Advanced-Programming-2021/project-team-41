@@ -4,6 +4,8 @@ import model.database.DataBase;
 import model.database.user.UserDB;
 import model.database.user.UserDBException;
 
+import java.util.*;
+
 public class DeckDB {
     /* Static Fields */
     private static final DataBase dataBase = DataBase.getInstance();
@@ -28,6 +30,10 @@ public class DeckDB {
         dataBase.exeUpdate(String.format(Queries.DELETE_USER_DECK.getQuery(), userId, deckId));
         dataBase.exeUpdate(String.format(Queries.DELETE_CARD_DECK.getQuery(), deckId));
         dataBase.exeUpdate(String.format(Queries.DELETE_DECK.getQuery(), deckId));
+    }
+
+    public static ArrayList<Dictionary<String, String>> loadAllDecks(int userId) {
+        return dataBase.getResult(String.format(Queries.GET_DECK_AND_CARDS.getQuery(), userId));
     }
 
     public static void deckIdExistsInDatabase(int deckId) throws DeckDoesNotExists {

@@ -2,6 +2,8 @@ package model.database.user;
 
 import model.database.DataBase;
 
+import java.util.Dictionary;
+
 public class UserDB {
     /* Static Fields */
     private static final DataBase dataBase = DataBase.getInstance();
@@ -24,17 +26,22 @@ public class UserDB {
         return dataBase.getGenerateKey();
     }
 
-    public static void updateMoney(int userId, int newMoney) throws UserDoesNotExists {
+    public static Dictionary<String, String> getUser(String userName) throws UsernameDoesNotExists {
+        if (countUserByUsername(userName) <= 0) throw new UsernameDoesNotExists(userName);
+            return dataBase.getResult(String.format(Queries.GET_USER_BY_USERNAME.getQuery(),userName)).get(0);
+    }
+
+    public static void updateMoney(int userId, int newMoney) throws UserIdDoesNotExists {
         userIdExistsInDatabase(userId);
         dataBase.exeUpdate(String.format(Queries.UPDATE_USER_MONEY.getQuery(), newMoney, userId));
     }
 
-    public static void updateScore(int userId, int newScore) throws UserDoesNotExists {
+    public static void updateScore(int userId, int newScore) throws UserIdDoesNotExists {
         userIdExistsInDatabase(userId);
         dataBase.exeUpdate(String.format(Queries.UPDATE_USER_SCORE.getQuery(), newScore, userId));
     }
 
-    public static void userIdExistsInDatabase(int userId) throws UserDoesNotExists {
-        if (countUserById(userId) <= 0) throw new UserDoesNotExists(userId);
+    public static void userIdExistsInDatabase(int userId) throws UserIdDoesNotExists {
+        if (countUserById(userId) <= 0) throw new UserIdDoesNotExists(userId);
     }
 }
