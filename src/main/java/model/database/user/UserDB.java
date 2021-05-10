@@ -28,7 +28,7 @@ public class UserDB {
 
     public static Dictionary<String, String> getUser(String userName) throws UsernameDoesNotExists {
         if (countUserByUsername(userName) <= 0) throw new UsernameDoesNotExists(userName);
-            return dataBase.getResult(String.format(Queries.GET_USER_BY_USERNAME.getQuery(),userName)).get(0);
+        return dataBase.getResult(String.format(Queries.GET_USER_BY_USERNAME.getQuery(), userName)).get(0);
     }
 
     public static void updateMoney(int userId, int newMoney) throws UserIdDoesNotExists {
@@ -39,6 +39,16 @@ public class UserDB {
     public static void updateScore(int userId, int newScore) throws UserIdDoesNotExists {
         userIdExistsInDatabase(userId);
         dataBase.exeUpdate(String.format(Queries.UPDATE_USER_SCORE.getQuery(), newScore, userId));
+    }
+
+    public static void updateNickName(int userId, String newNickName) throws UserIdDoesNotExists {
+        userIdExistsInDatabase(userId);
+        dataBase.exeUpdate(String.format(Queries.UPDATE_USER_NICKNAME.getQuery(), newNickName, userId));
+    }
+
+    public static void updatePassword(int userId, String newPassword) throws UserIdDoesNotExists {
+        userIdExistsInDatabase(userId);
+        dataBase.exeUpdate(String.format(Queries.UPDATE_USER_PASSWORD.getQuery(), newPassword, userId));
     }
 
     public static void userIdExistsInDatabase(int userId) throws UserIdDoesNotExists {

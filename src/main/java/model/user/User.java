@@ -96,12 +96,14 @@ public class User {
         if (!this.password.equals(currentPassword)) throw new InvalidCurrentPassword();
         if (this.password.equals(newPassword)) throw new RepeatedPassword();
         this.password = newPassword;
+        UserDB.updatePassword(this.getId(), newPassword);
     }
 
     public void changeNickname(String newNickname) throws Exception {
         Validator.nicknameValid(newNickname);
-        if (UserDB.countUserByNickname(nickName) >= 1) throw new NicknameAlreadyExists(nickName);
+        if (UserDB.countUserByNickname(newNickname) >= 1) throw new NicknameAlreadyExists(newNickname);
         this.nickName = newNickname;
+        UserDB.updateNickName(this.getId(), newNickname);
     }
 
     public Deck getDeckByName(String deckName) {
