@@ -20,8 +20,8 @@ public class Deck {
     private final int id;
     private final User user;
     private final String name;
-    private final Set<Card> main;
-    private final Set<Card> side;
+    private final HashSet<Card> main;
+    private final HashSet<Card> side;
     private boolean isValid = false;
 
     /* Constructor */
@@ -35,7 +35,7 @@ public class Deck {
         this.main = new HashSet<>();
     }
 
-    Deck(int id, User user, String name, Set<Card> main, Set<Card> side) {
+    Deck(int id, User user, String name, HashSet<Card> main, HashSet<Card> side) {
         this.id = id;
         this.user = user;
         this.name = name;
@@ -67,16 +67,16 @@ public class Deck {
     }
 
     private void checkValid() {
-        if (this.isValid) return;
         this.isValid = main.size() >= MAIN_MIN && side.size() >= SIDE_MIN;
     }
 
     public void removeCardFromDeck(String cardName, boolean isSide) throws Exception {
         int number = isSide ? numberOfCardInSide(cardName) : numberOfCardInMain(cardName);
-        if (number == 0) throw new CardDoesNotExistsInDeck(cardName,isSide);
+        if (number == 0) throw new CardDoesNotExistsInDeck(cardName, isSide);
         Card card = getCardInDeck(cardName, isSide);
         if (isSide) this.side.remove(card);
         else this.main.remove(card);
+        checkValid();
         CardDB.removeCardFromDeck(this.getId(), card.getId(), isSide);
     }
 
@@ -110,6 +110,6 @@ public class Deck {
     @Override
     public String toString() {
         String format = "%s: main deck %d, side deck %d, %s";
-        return String.format(format, this.name, this.main.size(), this.side.size());
+        return String.format(format, this.name, this.main.size(), this.side.size(), this.isValid ? "valid" : "invalid");
     }
 }
