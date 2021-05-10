@@ -17,9 +17,9 @@ public class MainMenu extends Menu {
 
             // Control flow of app
             if (command == Commands.MAIN_LOGOUT) {
-                menuNavigation(AppStatus.LOGIN_REGISTER);
                 controller.userLogout();
                 System.out.println("user logged out successfully!");//TODO: send this to view
+                menuNavigation(AppStatus.LOGIN_REGISTER);
             } else {
                 Menu.globalCommands(enterCommand, menu);
             }

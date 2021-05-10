@@ -53,11 +53,11 @@ public class AppController {
     public void run() {
         while (getStatus() != AppStatus.EXIT) {
             if (getStatus() == AppStatus.LOGIN_REGISTER) LoginRegisterMenu.run();
-            if (getStatus() == AppStatus.MAIN) MainMenu.run();
-            if (getStatus() == AppStatus.DECK) DeckMenu.run();
-            if (getStatus() == AppStatus.SCOREBOARD) Scoreboard.run();
-            if (getStatus() == AppStatus.PROFILE) ProfileMenu.run();
-            if (getStatus() == AppStatus.SHOP) ShopMenu.run();
+            else if (getStatus() == AppStatus.MAIN) MainMenu.run();
+            else if (getStatus() == AppStatus.DECK) DeckMenu.run();
+            else if (getStatus() == AppStatus.SCOREBOARD) Scoreboard.run();
+            else if (getStatus() == AppStatus.PROFILE) ProfileMenu.run();
+            else if (getStatus() == AppStatus.SHOP) ShopMenu.run();
             else return;
         }
     }

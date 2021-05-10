@@ -49,6 +49,7 @@ public class LoginRegisterMenu extends Menu {
             user = UserLoader.loadUser(login.getUsername(), login.getPassword());
             System.out.println("user logged in successfully!");//TODO: send to view
             controller.setUser(user);
+            menuNavigation(AppStatus.MAIN);
         } catch (Exception e) {
             System.out.println(e.getMessage());//TODO: send to view
         }
