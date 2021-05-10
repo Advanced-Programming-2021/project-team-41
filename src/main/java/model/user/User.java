@@ -45,20 +45,22 @@ public class User {
         this.id = UserDB.insertUser(username, nickname, password, score, wallet.getAmount());
     }
 
-    public User(int id, String username, String password, String nickName,
-                HashSet<Card> cards, HashSet<Deck> decks, Deck activeDeck, int score, Wallet wallet) {
+    public User(int id, String username, String password, String nickName, int score, int money) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.nickName = nickName;
-        this.cards = cards;
-        this.decks = decks;
-        this.activeDeck = activeDeck;
         this.score = score;
-        this.wallet = wallet;
+        this.wallet = new Wallet(this, money);
+        this.cards = new HashSet<>();
+        this.decks = new HashSet<>();
     }
 
     /* Getters And Setters */
+    public void setActiveDeck(Deck activeDeck) {
+        this.activeDeck = activeDeck;
+    }
+
     public int getId() {
         return id;
     }
