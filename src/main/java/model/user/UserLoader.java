@@ -12,6 +12,12 @@ import java.util.HashSet;
 import java.util.Optional;
 
 public class UserLoader {
+    /* Constructor */
+    private UserLoader() {
+        // Can not instantiation
+    }
+
+    /* Static methods */
     public static User loadUser(String username, String password) throws UsernameAndPasswordDidNotMatch, UserDBException, DeckDBException, CardNotFindInUsersCard, CanNotFindActiveDeckInDecks {
         HashSet<Card> userCards;
         Dictionary<String, String> userInfo;
@@ -30,7 +36,7 @@ public class UserLoader {
         return user;
     }
 
-    public static void setActiveDeck(User user, String activeDeckId) throws CanNotFindActiveDeckInDecks {
+    private static void setActiveDeck(User user, String activeDeckId) throws CanNotFindActiveDeckInDecks {
         if (!activeDeckId.equals("")) {
             Optional<Deck> opt = user.getDecks().stream().
                     filter(deck -> deck.getId() == Integer.parseInt(activeDeckId)).findFirst();
@@ -39,7 +45,7 @@ public class UserLoader {
         }
     }
 
-    public static void loadDecks(User user, HashSet<Card> userCards, int userId) throws DeckDBException, CardNotFindInUsersCard {
+    private static void loadDecks(User user, HashSet<Card> userCards, int userId) throws DeckDBException, CardNotFindInUsersCard {
         for (Dictionary<String, String> deckInfo : DeckDB.getAllUserDeck(userId)) {
             HashSet<Card> used = new HashSet<>(), main = new HashSet<>(), side = new HashSet<>();
             for (Integer cardId : DeckDB.getDeckMainCards(Integer.parseInt(deckInfo.get("id")))) {
@@ -52,7 +58,7 @@ public class UserLoader {
         }
     }
 
-    public static void addCardToDeck(HashSet<Card> used, HashSet<Card> userCards, int cardId, HashSet<Card> mainOrSide) throws CardNotFindInUsersCard {
+    private static void addCardToDeck(HashSet<Card> used, HashSet<Card> userCards, int cardId, HashSet<Card> mainOrSide) throws CardNotFindInUsersCard {
         Card currentSelected;
         Optional<Card> opt = userCards.stream().filter(card -> card.getId() == cardId &&
                 !used.contains(card)).findFirst();
@@ -62,7 +68,7 @@ public class UserLoader {
         mainOrSide.add(currentSelected);
     }
 
-    public static HashSet<Card> loadUserCards(int userId) throws UserDBException {
+    private static HashSet<Card> loadUserCards(int userId) throws UserDBException {
         HashSet<Card> loadedCards = new HashSet<>();
 
         for (Dictionary<String, String> card : CardDB.getAllCardsOfUser(userId)) {
