@@ -6,6 +6,7 @@ import controller.menus.entities.ShopMenu;
 import controller.menus.entities.deck.DeckMenu;
 import controller.menus.entities.login.LoginRegisterMenu;
 import controller.menus.entities.profile.ProfileMenu;
+import model.user.User;
 
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public class AppController {
     /* Instance Fields */
     private AppStatus status = AppStatus.LOGIN_REGISTER;
     public final Scanner scanner = new Scanner(System.in);
-    //TODO: Create private user field
+    private User user;
 
     /* Constructor */
     private AppController() {
@@ -32,7 +33,14 @@ public class AppController {
     }
 
     /* Getters And Setters */
-    //TODO: Create setter and getter for user
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
     public AppStatus getStatus() {
         return status;
     }
@@ -52,5 +60,9 @@ public class AppController {
             if (getStatus() == AppStatus.SHOP) ShopMenu.run();
             else return;
         }
+    }
+
+    public void userLogout() {
+        setUser(null);
     }
 }

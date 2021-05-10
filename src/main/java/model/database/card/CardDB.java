@@ -31,7 +31,7 @@ public class CardDB {
         String mainOrSide = isSide ? "side" : "main";
         dataBase.exeUpdate(String.format(Queries.DELETE_CARD_FROM_DECK.getQuery(), deckId, cardId, mainOrSide));
     }
-    private static ArrayList<Dictionary<String,String>> getAllCardsOfUser(int userId) throws UserDBException {
+    public static ArrayList<Dictionary<String,String>> getAllCardsOfUser(int userId) throws UserDBException {
         UserDB.userIdExistsInDatabase(userId);
         return dataBase.getResult(String.format(Queries.GET_CARD_OFF_USER.getQuery(), userId));
     }
