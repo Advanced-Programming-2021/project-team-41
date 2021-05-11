@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class test {
+public class DataBaseTests {
     @Test
     public void normalTest() {
         Assert.assertEquals(2, 2);

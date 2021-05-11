@@ -30,15 +30,20 @@ public class ProfileMenu extends Menu {
     }
 
     private static void changeNickname(ArrayList<String> captured) {
-        assert captured.get(0) != null;
-        System.out.println("In change nick Name new: " + captured.get(0));
-        // TODO: change nick name of logged in user
+        try {
+            controller.getUser().changeNickname(captured.get(0));
+            System.out.println("nickname changed successfully!");//TODO: send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: send this to view
+        }
     }
 
     private static void changePassword(ChangePass changePass) {
-        System.out.println("In change pass");
-        System.out.println(changePass.getCurrentPass());
-        System.out.println(changePass.getNewPass());
-        // TODO: change password of logged in user
+        try {
+            controller.getUser().changePassword(changePass.getCurrentPass(), changePass.getNewPass());
+            System.out.println("password changed successfully!");//TODO: send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: send this to view
+        }
     }
 }

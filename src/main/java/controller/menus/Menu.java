@@ -17,13 +17,15 @@ public abstract class Menu {
         if (command == Commands.GLOBAL_EXIT_MENU) {
             menuNavigation(AppStatus.getUpperState(appStatus));
         } else if (command == Commands.GLOBAL_SHOW_MENU) {
-            //TODO: send this to view
-            System.out.println(menu.getName());
+            System.out.println(menu.getName());//TODO: send this to view
         } else if (command == Commands.GLOBAL_ENTER_MENU) {
+            if (controller.getUser()==null){
+                System.out.println("please login first");//TODO: send this to view
+                return;
+            }
             enterMenu(Commands.getGroups(enterCommand, command.getRegex()), menu);
         } else if (command == Commands.GLOBAL_INVALID_COMMAND) {
-            //TODO: send this to view
-            System.out.println("invalid");
+            System.out.println("invalid");//TODO: send this to view
         }
     }
 

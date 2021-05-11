@@ -6,6 +6,8 @@ import controller.menus.Menu;
 import controller.menus.MenuEntities;
 import controller.menus.entities.login.command.Create;
 import controller.menus.entities.login.command.Login;
+import model.user.User;
+import model.user.UserLoader;
 
 public class LoginRegisterMenu extends Menu {
     /* Static Methods */
@@ -33,16 +35,24 @@ public class LoginRegisterMenu extends Menu {
 
 
     private static void createUser(Create create) {
-        System.out.println(create.getUsername());
-        System.out.println(create.getNickname());
-        System.out.println(create.getPassword());
-        // TODO: create user here
+        try {
+            new User(create.getUsername(), create.getPassword(), create.getNickname());
+            System.out.println("user created successfully!");//TODO: send to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: send to view
+        }
     }
 
     private static void loginUser(Login login) {
-        System.out.println(login.getUsername());
-        System.out.println(login.getPassword());
-        // TODO: login user
+        User user;
+        try {
+            user = UserLoader.loadUser(login.getUsername(), login.getPassword());
+            System.out.println("user logged in successfully!");//TODO: send to view
+            controller.setUser(user);
+            menuNavigation(AppStatus.MAIN);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: send to view
+        }
     }
 
 }
