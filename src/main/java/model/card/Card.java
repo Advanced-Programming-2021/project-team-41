@@ -1,6 +1,6 @@
 package model.card;
 
-public class Card {
+public abstract class Card {
     private int cardId;
     private String name;
     private String description;
