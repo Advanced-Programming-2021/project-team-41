@@ -1,6 +1,9 @@
 package model.card.monster;
 
 import model.card.Card;
+import model.card.monster.effective.CommandKnight;
+
+import java.util.ArrayList;
 
 public class Monster extends Card {
     private int level;
@@ -9,6 +12,7 @@ public class Monster extends Card {
     private CardType cardType;
     private int attack;
     private int defence;
+    private ArrayList<CommandKnight> commandKnightEffect;
 
     public int getLevel() {
         return level;
@@ -101,19 +105,19 @@ public class Monster extends Card {
     //  ---------------------------------------------------------------------
 //    increase and decrease attack and defence
 
-    public void increaseDefence(int amount) {
+    public void addToDefence(int amount) {
         defence += amount;
     }
 
-    public void increaseAttack(int amount) {
+    public void addToAttack(int amount) {
         attack += amount;
     }
 
-    public void decreaseDefence(int amount) {
+    public void subtractFromDefence(int amount) {
         defence -= amount;
     }
 
-    public void decreaseAttack(int amount) {
+    public void subtractFromAttack(int amount) {
         attack -= amount;
     }
 //    -----------------------------------------------------------------------
