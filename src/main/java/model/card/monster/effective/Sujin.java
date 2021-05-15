@@ -6,8 +6,8 @@ import model.card.monster.Monster;
 
 public class Sujin extends Monster {
     //   notice : reset to true after coming out of grave
-    int attackCardAttackValue;
-    boolean isEffectApplied = false;
+    private int attackCardAttackValue;
+    private boolean isEffectApplied = false;
 
     public Sujin(String name, int level, String attribute, String monsterType, int attack, int defence, String description, int price) {
         setName(name);
