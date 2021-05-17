@@ -7,6 +7,7 @@ import controller.menus.MenuEntities;
 import controller.menus.entities.deck.command.AddCard;
 import controller.menus.entities.deck.command.DeckShow;
 import controller.menus.entities.deck.command.RemoveCard;
+import model.user.User;
 
 import java.util.ArrayList;
 
