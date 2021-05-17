@@ -7,6 +7,7 @@ import controller.menus.MenuEntities;
 import controller.menus.entities.deck.command.AddCard;
 import controller.menus.entities.deck.command.DeckShow;
 import controller.menus.entities.deck.command.RemoveCard;
+import model.user.Deck;
 import model.user.User;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class DeckMenu extends Menu {
     /* Static Methods */
     public static void run() {
-        String enterCommand;;
+        String enterCommand;
         MenuEntities menu = MenuEntities.DECK;
 
         while (controller.getStatus() == AppStatus.DECK) {
@@ -37,7 +38,7 @@ public class DeckMenu extends Menu {
             } else if (command == Commands.DECK_SHOW_ALL_DECKS) showAllDecks();
             else if (command == Commands.DECK_SHOW_DECK) {
                 DeckShow deckShow = new DeckShow();
-                if (deckShow.parse(Commands.getArgs(command, enterCommand)))showDeck(deckShow);
+                if (deckShow.parse(Commands.getArgs(command, enterCommand))) showDeck(deckShow);
             } else if (command == Commands.DECK_SHOW_ALL_CARDS) showAllCards();
             else globalCommands(enterCommand, menu);
         }
@@ -45,28 +46,62 @@ public class DeckMenu extends Menu {
 
 
     private static void createNewDeck(ArrayList<String> captured) {
-        System.out.println("In create new deck");
-        //TODO: create new deck
+        User user = controller.getUser();
+        String deckName = captured.get(0);
+        try {
+            user.addNewDeck(deckName);
+            System.out.println("deck created successfully!");//TODO: Send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: Send this to view
+        }
     }
 
     private static void deleteDeck(ArrayList<String> captured) {
-        System.out.println("In delete deck");
-        //TODO: remove deck
+        User user = controller.getUser();
+        String deckName = captured.get(0);
+        try {
+            user.removeDeck(deckName);
+            System.out.println("deck deleted successfully!");//TODO: Send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: Send this to view
+        }
     }
 
     private static void setAsActiveDeck(ArrayList<String> captured) {
-        System.out.println("In set as active");
-        //TODO: set deck as active
+        User user = controller.getUser();
+        String deckName = captured.get(0);
+        try {
+            user.setAsActiveDeck(deckName);
+            System.out.println("deck activated successfully!");//TODO: Send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: Send this to view
+        }
     }
 
     private static void addCardToDeck(AddCard addCard) {
-        System.out.println("In add card");
-        //TODO: add card to main or side deck
+        User user = controller.getUser();
+        Deck selectedDeck;
+        try {
+            user.assertDeckExist(addCard.getDeckName());
+            selectedDeck = user.getDeckByName(addCard.getDeckName());
+            selectedDeck.addCardToDeck(addCard.getCardName(), addCard.isSide());
+            System.out.println("card added to deck successfully");//TODO: Send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: Send this to view
+        }
     }
 
     private static void removeCardFromDeck(RemoveCard removeCard) {
-        System.out.println("In remove card");
-        //TODO: remove card from main or side deck
+        User user = controller.getUser();
+        Deck selectedDeck;
+        try {
+            user.assertDeckExist(removeCard.getDeckName());
+            selectedDeck = user.getDeckByName(removeCard.getDeckName());
+            selectedDeck.removeCardFromDeck(removeCard.getCardName(), removeCard.isSide());
+            System.out.println("card removed form deck successfully");//TODO: Send this to view
+        } catch (Exception e) {
+            System.out.println(e.getMessage());//TODO: Send this to view
+        }
     }
 
     private static void showAllDecks() {

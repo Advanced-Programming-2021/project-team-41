@@ -138,4 +138,8 @@ public class User {
     public void addToUserCard(Card card) {
         this.getCards().add(card);
     }
+
+    public void assertDeckExist(String deckName) throws DeckDoesNotExists {
+        if (this.getDeckByName(deckName) == null) throw new DeckDoesNotExists(deckName);
+    }
 }
