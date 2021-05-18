@@ -9,6 +9,7 @@ import controller.menus.entities.deck.command.DeckShow;
 import controller.menus.entities.deck.command.RemoveCard;
 import model.user.Deck;
 import model.user.User;
+import view.deckmenu.DeckView;
 
 import java.util.ArrayList;
 
@@ -50,9 +51,9 @@ public class DeckMenu extends Menu {
         String deckName = captured.get(0);
         try {
             user.addNewDeck(deckName);
-            System.out.println("deck created successfully!");//TODO: Send this to view
+            DeckView.showResult("deck created successfully!");
         } catch (Exception e) {
-            System.out.println(e.getMessage());//TODO: Send this to view
+            DeckView.showResult(e.getMessage());
         }
     }
 
@@ -61,9 +62,9 @@ public class DeckMenu extends Menu {
         String deckName = captured.get(0);
         try {
             user.removeDeck(deckName);
-            System.out.println("deck deleted successfully!");//TODO: Send this to view
+            DeckView.showResult("deck deleted successfully!");
         } catch (Exception e) {
-            System.out.println(e.getMessage());//TODO: Send this to view
+            DeckView.showResult(e.getMessage());
         }
     }
 
@@ -72,9 +73,9 @@ public class DeckMenu extends Menu {
         String deckName = captured.get(0);
         try {
             user.setAsActiveDeck(deckName);
-            System.out.println("deck activated successfully!");//TODO: Send this to view
+            DeckView.showResult("deck activated successfully!");
         } catch (Exception e) {
-            System.out.println(e.getMessage());//TODO: Send this to view
+            DeckView.showResult(e.getMessage());
         }
     }
 
@@ -85,9 +86,9 @@ public class DeckMenu extends Menu {
             user.assertDeckExist(addCard.getDeckName());
             selectedDeck = user.getDeckByName(addCard.getDeckName());
             selectedDeck.addCardToDeck(addCard.getCardName(), addCard.isSide());
-            System.out.println("card added to deck successfully");//TODO: Send this to view
+            DeckView.showResult("card added to deck successfully!");
         } catch (Exception e) {
-            System.out.println(e.getMessage());//TODO: Send this to view
+            DeckView.showResult(e.getMessage());
         }
     }
 
@@ -98,15 +99,15 @@ public class DeckMenu extends Menu {
             user.assertDeckExist(removeCard.getDeckName());
             selectedDeck = user.getDeckByName(removeCard.getDeckName());
             selectedDeck.removeCardFromDeck(removeCard.getCardName(), removeCard.isSide());
-            System.out.println("card removed form deck successfully");//TODO: Send this to view
+            DeckView.showResult("card removed form deck successfully!");
         } catch (Exception e) {
-            System.out.println(e.getMessage());//TODO: Send this to view
+            DeckView.showResult(e.getMessage());
         }
     }
 
     private static void showAllDecks() {
-        System.out.println("in show all deck");
-        //TODO: show all decks of user
+        User user = controller.getUser();
+        DeckView.showAllDecks(user.getActiveDeck(), user.getDecks());
     }
 
     private static void showDeck(DeckShow deckShow) {

@@ -109,7 +109,7 @@ public class Deck {
 
     @Override
     public String toString() {
-        String format = "%s: main deck %d, side deck %d, %s";
+        String format = "%s: main deck %d, side deck %d, %s\n";
         return String.format(format, this.name, this.main.size(), this.side.size(), this.isValid ? "valid" : "invalid");
     }
 }
