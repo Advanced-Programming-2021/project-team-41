@@ -3,8 +3,11 @@ package model.card;
 public abstract class Card {
     private int cardId;
     private String name;
+    private Type type;
     private String description;
     private int price;
+
+//    getters and setters
 
     public int getCardId() {
         return cardId;
@@ -20,6 +23,14 @@ public abstract class Card {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public String getDescription() {
