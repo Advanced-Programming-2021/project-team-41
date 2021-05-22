@@ -1,18 +1,17 @@
 package model.card.monster;
 
 import model.card.Card;
-import model.card.monster.effective.CommandKnight;
 
-import java.util.ArrayList;
-
-public class Monster extends Card {
+public abstract class Monster extends Card {
     private int level;
     private Attribute attribute;
     private MonsterType monsterType;
-    private CardType cardType;
+    private CardType type;
     private int attack;
     private int defence;
-    private ArrayList<CommandKnight> commandKnightEffect;
+//    private ArrayList<CommandKnight> commandKnightEffect;
+
+//    setters and getters
 
     public int getLevel() {
         return level;
@@ -79,11 +78,11 @@ public class Monster extends Card {
     }
 
     public CardType getCardType() {
-        return cardType;
+        return type;
     }
 
     public void setCardType(CardType cardType) {
-        this.cardType = cardType;
+        this.type = cardType;
     }
 
     public int getAttack() {
@@ -102,7 +101,6 @@ public class Monster extends Card {
         this.defence = defence;
     }
 
-    //  ---------------------------------------------------------------------
 //    increase and decrease attack and defence
 
     public void addToDefence(int amount) {
@@ -120,7 +118,7 @@ public class Monster extends Card {
     public void subtractFromAttack(int amount) {
         attack -= amount;
     }
-//    -----------------------------------------------------------------------
+
     @Override
     public String toString() {
         return "Monster{" +
@@ -130,11 +128,11 @@ public class Monster extends Card {
                 ", level=" + level +
                 ", attribute='" + attribute + '\'' +
                 ", monsterType='" + monsterType + '\'' +
-                ", cardType='" + cardType + '\'' +
+                ", cardType='" + type + '\'' +
                 ", attack=" + attack +
                 ", defence=" + defence +
-                ", property='" + property + '\'' +
-                ", status='" + status + '\'' +
+//                ", property='" + property + '\'' +
+//                ", status='" + status + '\'' +
                 ", description='" + getDescription() + '\'' +
                 ", price=" + getPrice() +
                 '}';
