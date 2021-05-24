@@ -24,7 +24,7 @@ public class AppController {
         // Singleton class
     }
 
-    /* Static methods */
+    /* Static Methods */
     public static AppController getInstance() {
         if (AppController.appController == null)
             AppController.appController = new AppController();
