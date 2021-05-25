@@ -1,6 +1,7 @@
 package model.card.spellAndTrap.spell.continuos;
 
 import model.card.spellAndTrap.Icon;
+import model.card.spellAndTrap.Status;
 import model.card.spellAndTrap.spell.Spell;
 
 public class SpellAbsorption extends Spell {
