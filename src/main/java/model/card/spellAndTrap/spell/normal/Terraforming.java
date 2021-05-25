@@ -3,7 +3,6 @@ package model.card.spellAndTrap.spell.normal;
 import model.card.Card;
 import model.card.Type;
 import model.card.spellAndTrap.Icon;
-import model.card.spellAndTrap.SpellAndTrap;
 import model.card.spellAndTrap.Status;
 import model.card.spellAndTrap.spell.Spell;
 
