@@ -1,7 +1,8 @@
-package model.card.spellAndTrap.spell;
+package model.card.spellAndTrap.spell.normal;
 
 import model.card.spellAndTrap.Icon;
 import model.card.spellAndTrap.Status;
+import model.card.spellAndTrap.spell.Spell;
 
 public class MonsterReborn extends Spell {
     public MonsterReborn(String name, String description, int price) {

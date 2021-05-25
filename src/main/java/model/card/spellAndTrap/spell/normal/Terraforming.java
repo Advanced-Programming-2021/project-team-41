@@ -1,14 +1,15 @@
-package model.card.spellAndTrap.spell;
+package model.card.spellAndTrap.spell.normal;
 
 import model.card.Card;
 import model.card.Type;
 import model.card.spellAndTrap.Icon;
 import model.card.spellAndTrap.SpellAndTrap;
 import model.card.spellAndTrap.Status;
+import model.card.spellAndTrap.spell.Spell;
 
 import java.util.ArrayList;
 
-public class Terraforming extends Spell{
+public class Terraforming extends Spell {
     public Terraforming(String name, String description, int price) {
 
         super(name, Icon.NORMAL, description, Status.LIMITED, price);

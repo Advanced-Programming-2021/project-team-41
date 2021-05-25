@@ -1,6 +1,7 @@
-package model.card.spellAndTrap.spell;
+package model.card.spellAndTrap.spell.normal;
 
 import model.card.spellAndTrap.Icon;
+import model.card.spellAndTrap.spell.Spell;
 
 public class HarpiesFeatherDuster extends Spell {
     public HarpiesFeatherDuster(String name, String description, int price) {
